@@ -15,8 +15,98 @@
 <section class="chapter" id="os"><div class="chapter-head"><span class="chapter-num">03 /</span><h2>OSの役割</h2></div><p><strong>OS（オペレーティングシステム）は、ハードウェアなどの資源を管理し、アプリケーションの実行を支える基本ソフトウェア。</strong>macOS、Windows、Linux、Android、iOSなどがある。</p><div class="card"><h3>アプリとハードウェアの間を支える</h3><div class="flow"><div><b>応用ソフトウェア</b>ブラウザ・IDE</div><span>↔</span><div><b>基本ソフトウェア</b>OS</div><span>↔</span><div><b>ハードウェア</b>CPU・メモリ・機器</div></div><p class="small">パソコンの仕組みを簡略化した図。アプリはOSの機能を利用して、ファイルや入力・出力機器などを扱う。</p><ul><li><strong>実行の管理：</strong>CPUを使う時間などを調整し、複数のアプリの実行を支える。</li><li><strong>メモリの管理：</strong>アプリが使うメモリ領域を割り当て、管理する。</li><li><strong>ファイルの管理：</strong>ファイルやフォルダを扱い、保存・読み出しを支える。</li><li><strong>入出力機器の管理：</strong>キーボード、画面、USB機器などを、ドライバーを通して扱う。</li><li><strong>操作手段の提供：</strong>画面やコマンドなどを通して、ユーザーの操作を受け付ける。</li></ul></div><div class="callout"><strong>「基本ソフト」と「応用ソフト」を区別する</strong>OSは基本ソフトウェアの代表。ブラウザ、文書作成アプリ、Arduino IDEは、目的に応じて使う応用ソフトウェア（アプリケーション）。OSだけで、あらゆる目的の作業ができるわけではない。</div>
 <div class="card"><h3>MacとM5Stackでは実行環境が違う</h3><p>Mac上のArduino IDEは<strong>macOS</strong>に支えられて動く。一方、書き込んだプログラムは<strong>M5Stack本体のESP32向けの環境</strong>で動く。MacのmacOSが、そのままM5Stackの中でも動くわけではない。</p><p><strong>組み込み</strong>とは、家電や装置の中にコンピュータを組み込み、その装置の働きを実現すること。M5Stackは、こうした機器の動きを作って試すためにも使える。</p><p class="small">組み込み機器には、OSを使うものも使わないものもある。授業の範囲では「M5StackにmacOSを入れた」と考えず、機器に合った環境でプログラムを動かした、と理解しよう。内部のOS名の暗記は不要。</p></div><p class="chapter-link"><a href="quiz.html?topic=os">このテーマの問題を解く →</a></p></section>
 <section class="chapter" id="interface"><div class="chapter-head"><span class="chapter-num">04 /</span><h2>ヒューマンインタフェース</h2></div><p><strong>人間とコンピュータが情報をやり取りする接点や仕組み。</strong>「人がどう操作するか」だけでなく、「コンピュータがどう結果や状態を伝えるか」も含む。</p><div class="card"><h3>入力と、返ってくる反応をセットで考える</h3><p>カウンターなら、Aボタンで操作を受け取り、画面の数字で結果を伝える。押しても画面が変わらなければ、操作できたかどうか分かりにくい。</p><p>このように、操作の結果や機器の状態を利用者に返すことを<strong>フィードバック</strong>という。文字・色・音・振動などが使える。</p><p class="small">ヒューマンインタフェースは、ハードウェアだけ・ソフトウェアだけとは限らない。ボタンや画面という装置と、表示内容や操作のルールが一緒に働く。</p></div>
-<div class="table-wrap"><table><thead><tr><th>操作の方式</th><th>特徴</th><th>例</th></tr></thead><tbody><tr><td>GUI<br>グラフィカルユーザインタフェース</td><td>アイコン、ボタン、メニューなどの図形を使って操作する</td><td>Finderでフォルダを開く、画面のボタンをタッチする</td></tr><tr><td>CUI<br>キャラクタユーザインタフェース</td><td>文字によるコマンドを入力して操作する</td><td>ターミナルで <code>mkdir study</code> と入力する</td></tr></tbody></table></div><div class="callout note"><strong>「文字が表示される」だけではCUIとはいえない</strong>CUIかどうかは、文字によるコマンドで操作するかで考える。GUIのボタンに「保存」と文字が書かれていてもGUI。キーボードを使っているだけでCUIになるわけでもない。</div>
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>用語</th>
+        <th>特徴</th>
+        <th>例</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          GUI<br>
+          Graphical User Interface<br>
+          グラフィカルユーザインタフェース
+        </td>
+        <td>
+          アイコン、ボタン、メニューなどの図形を使って操作する仕組み
+        </td>
+        <td>
+          Finderでフォルダを開く、画面のボタンをタッチする
+        </td>
+      </tr>
+      <tr>
+        <td>
+          CUI<br>
+          Character User Interface<br>
+          キャラクタユーザインタフェース
+        </td>
+        <td>
+          主に文字を使って情報を表示し、操作する仕組み
+        </td>
+        <td>
+          文字によるメニューやコマンドを使って操作する画面
+        </td>
+      </tr>
+      <tr>
+        <td>
+          CLI<br>
+          Command Line Interface<br>
+          コマンドラインインタフェース
+        </td>
+        <td>
+          コマンドを文字で入力して操作する仕組み
+        </td>
+        <td>
+          ターミナルで <code>mkdir study</code> と入力して、
+          studyというフォルダを作る
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout">
+  <strong>CUIとCLIは、重なる部分がある</strong>
+  CUIは「文字を中心に情報を表示して操作すること」、
+  CLIは「コマンドを入力して操作すること」に着目した呼び方です。
+  ターミナルでコマンドを入力する操作は、CUIでもありCLIでもあります。
+  入門的な説明では、ほぼ同じ意味で使われることもあります。
+</div>
+
+<div class="callout note">
+  <strong>文字が表示されるだけでは、CUI・CLIとは限らない</strong>
+  GUIのボタンに「保存」と書かれていてもGUIです。
+  また、キーボードで文章を入力するだけではCLIとはいえません。
+  CLIでは、コンピュータへの指示をコマンドとして入力します。
+</div>
+
+<div class="card">
+  <h3>同じ作業でも、操作方法が違う</h3>
+  <p>
+    例えば、studyというフォルダを作る場合を考えよう。
+  </p>
+  <ul>
+    <li>
+      <strong>GUI：</strong>
+      Finderのメニューで「新規フォルダ」を選び、
+      名前をstudyにする。
+    </li>
+    <li>
+      <strong>CLI：</strong>
+      ターミナルで <code>mkdir study</code> と入力する。
+    </li>
+  </ul>
+  <p class="small">
+    GUIとCLIは、同じコンピュータで使い分けられます。
+    VS CodeのようなGUIのアプリ内で、
+    ターミナルを開いてCLIを使うこともできます。
+  </p>
+</div>
 <div class="two-col"><div class="card"><h3>使いやすさを考える</h3><p><strong>ユーザビリティ</strong>は使いやすさ。ボタンに役割を書く、表示を読みやすくする、操作後すぐ反応を返すと、迷いやミスを減らせる。</p></div><div class="card"><h3>利用できる人を広げる</h3><p><strong>アクセシビリティ</strong>は、障害の有無や利用状況などにかかわらず利用できるようにすること。色だけで判定を伝えず、文字や記号も添える工夫がある。</p></div></div><div class="card" style="margin-top:18px"><h3>授業の作品を改善するなら？</h3><ul><li><strong>カウンター：</strong>A・B・Cだけでなく、「増やす・減らす・リセット」と表示する。</li><li><strong>傾きゲーム：</strong>ゴールを文字や形で示す。利用者が右に傾けたら、ボールも右に動くように対応を合わせる。</li><li><strong>音の大きさ：</strong>大きな音を検知したら、赤色だけでなく「TOO LOUD!」の文字も表示する。</li></ul></div><p class="chapter-link"><a href="quiz.html?topic=interface">このテーマの問題を解く →</a></p></section>
-<section class="chapter" id="review"><div class="chapter-head"><span class="chapter-num">✓ /</span><h2>自分の言葉で説明できる？</h2></div><div class="card checklist"><p class="small">用語を覚えたら、授業での具体例を使って説明しよう。チェックはこのページを開いている間だけ有効。</p><label><input type="checkbox">五大装置の役割と、CPUに含まれる2つの装置を説明できる。</label><label><input type="checkbox">マイクとスピーカーが、入力・出力のどちらか分かる。</label><label><input type="checkbox">RAMとSSD・フラッシュメモリの、電源を切ったときの違いを説明できる。</label><label><input type="checkbox">M5Stack本体・Arduino IDE・OSを分類できる。</label><label><input type="checkbox">OSがアプリの実行をどう支えるか、具体例を挙げられる。</label><label><input type="checkbox">GUIとCUIを、操作の方法で区別できる。</label><label><input type="checkbox">作品の使いやすさやアクセシビリティを改善する案を出せる。</label></div><div class="actions"><a href="quiz.html" class="btn">サンプル問題24問に挑戦 →</a><button class="btn secondary" onclick="window.print()">解説を印刷</button></div></section>
+<section class="chapter" id="review"><div class="chapter-head"><span class="chapter-num">✓ /</span><h2>自分の言葉で説明できる？</h2></div><div class="card checklist"><p class="small">用語を覚えたら、授業での具体例を使って説明しよう。チェックはこのページを開いている間だけ有効。</p><label><input type="checkbox">五大装置の役割と、CPUに含まれる2つの装置を説明できる。</label><label><input type="checkbox">マイクとスピーカーが、入力・出力のどちらか分かる。</label><label><input type="checkbox">RAMとSSD・フラッシュメモリの、電源を切ったときの違いを説明できる。</label><label><input type="checkbox">M5Stack本体・Arduino IDE・OSを分類できる。</label><label><input type="checkbox">OSがアプリの実行をどう支えるか、具体例を挙げられる。</label><label><input type="checkbox">GUI・CUI・CLIの特徴を、具体例を使って説明できる。</label><label><input type="checkbox">作品の使いやすさやアクセシビリティを改善する案を出せる。</label></div><div class="actions"><a href="quiz.html" class="btn">サンプル問題24問に挑戦 →</a><button class="btn secondary" onclick="window.print()">解説を印刷</button></div></section>
 <section class="chapter" id="sources"><h3>この教材について</h3><p class="small">授業資料「情報工学基礎 #7 はじめてのM5stack」（添付PDF）をもとに、高校「情報」の標準的な内容を補足しました。試験範囲の理解を助ける練習教材で、実際の出題を予告するものではありません。Wi-Fi・ネットワークや、コード文法の細部は扱いません。</p><ul class="source-list"><li><a href="https://www.mext.go.jp/content/20200716-mxt_jogai01-000001169_001.pdf" target="_blank" rel="noopener">文部科学省：情報Ⅰ 教員研修用教材 第3章（JavaScript版）</a> — 構成の学習参考</li><li><a href="https://docs.m5stack.com/en/core/core2" target="_blank" rel="noopener">M5Stack公式：Core2</a> — 機器の構成を確認</li></ul><p class="small">個人情報や回答の外部送信はありません。入力した回答は保存されず、ページの再読み込みで消えます。</p></section>
 </div></div></main><footer class="footer"><div class="container"><span>情報工学基礎 / 小テスト③ STUDY GUIDE</span><span>体験を、しくみの理解につなげよう。</span></div></footer></body></html>
